@@ -1,0 +1,418 @@
+
+
+// Var
+$smallBreakpoint : 500px;
+
+@import "~normalize.css/normalize.css";
+@import 'typo';
+
+// CSS VAR
+:root{
+    --gradientColor : #74ebd5;
+    --gradientColor2 : #9face6;
+    --gradient : linear-gradient(to left, var(--gradientColor) 0%, var(--gradientColor2) 100%);
+    --doubleGradient : linear-gradient(to right, var(--gradientColor) 0%, var(--gradientColor2) 50%, var(--gradientColor) 100%);
+    --smallBreakpoint : 500px;
+    --x : 0;
+    --y : 0;
+    --size: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#root,
+.wrapper {
+    display: block;
+    height: 100%;
+    width: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+    color: black;
+    font-family: "Cerebri Sans", Avenir, Helvetica, Segoe UI, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: ghostwhite;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    height: 100%;
+    background: white;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex: 1;
+}
+
+.animated-page-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 62px;
+    width: 100%;
+    padding: 0 3rem;
+    z-index: 999;
+    a {
+        margin-right: 1.5rem;
+        color: black;
+        text-decoration: none;
+        font-weight: 500;
+        &.active {
+            text-decoration: line-through;
+        }
+    }
+}
+
+.page {
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+    padding: calc(62px + 3rem) 3rem 3rem 3rem;
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    ul {
+        display: flex;
+        flex-flow: row wrap;
+        list-style: none;
+        padding: 0 0 6rem 0;
+        margin: 0;
+        li {
+            display: flex;
+            width: calc(100% / 4 - 2rem);
+            min-height: 200px;
+            margin-bottom: 2rem;
+            margin-right: 2rem;
+            div {
+                display: flex;
+                flex: 1;
+                border: 1px solid #BADA55;
+            }
+            a {
+                display: flex;
+                flex: 1;
+                flex-flow: column;
+                padding: 4rem;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+                &:hover {
+                    text-decoration: line-through;
+                }
+            }
+        }
+    }
+    &.home {
+    	h1 {
+    		max-width: 30ch;
+            margin-top: 0;
+    	}
+        a {
+            color: black;
+            text-decoration: none;
+            &:hover {
+                text-decoration: line-through;
+            }
+        }
+    }
+    &.projects {
+        flex-flow: row wrap;
+        h1 {
+            margin: 0 0 62px 0;
+        }
+        ul {
+            flex-flow: row wrap;
+        }
+    }
+    &.project-item {
+        h1 {
+            max-width: 35ch;
+        }
+        p {
+            max-width: 75ch;
+        }
+        .goBack {
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+    &.missed {
+    	align-items: center;
+    	align-content: center;
+    	justify-content: center;
+    	background: url("rdit.gif") no-repeat;
+    	background-size: cover;
+    	background-position: center center;
+
+    	h1 {
+    		font-size: 20vw;
+    	}
+    }
+}
+
+@media screen and (max-width: 1024px) {
+	* h1 {
+		max-width: 100% !important;
+	}
+    .top-bar {
+        padding: 0 1rem;
+    }
+    .page {
+        padding: calc(62px + 3rem) 1rem 1rem 1rem;
+        ul {
+            li {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+        ul.unstyled {
+            li {
+                margin-right: 1em;
+                width: 47%;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1140px) {
+    .page {
+        ul {
+            li {
+                width: calc(100% / 3 - 2rem);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .page {
+        ul.unstyled {
+            li {
+                margin-right: 0em;
+                width: 100%;
+            }
+        }
+    }
+}
+//////////////////////////////////////////
+// Layout
+//////////////////////////////////////////
+
+
+.home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex : 1;
+
+    .left {
+        flex : 2;
+        overflow-y: scroll;
+    }
+
+    .right {
+        flex: 1;
+        display: flex;
+        background-image: var(--doubleGradient);
+        padding: 20px;
+        background-size: 200%;
+        background-position: calc(var(--x)*-1) 0;
+
+    }
+    .centerFlex {
+        flex: 1;
+        align-self: center;
+    }
+
+}
+
+.about {
+    flex-direction: row;
+}
+
+@media screen and (max-width: $smallBreakpoint) {
+    .hidden-xs {
+        display: none;
+    }
+
+    .home {
+        flex-direction: column;
+
+        .left {
+            flex : 2;
+            overflow-y: hidden;
+        }
+
+        .right {
+            flex: 1;
+            display: flex;
+            background-image: var(--gradient);
+            padding: 20px;
+            background-size: 400%;
+            background-position: var(--x) var(--y);
+
+        }
+        .right:before {
+            --size: 0;
+            content: '&';
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: var(--size);
+            height: var(--size);
+            background: radial-gradient(circle closest-side, #4405f7, transparent);
+            transform: translate(-50%, -50%);
+            transition: width .2s ease, height .2s ease;
+        }
+        .right:hover::before {
+            --size: 400px;
+        }
+    }
+
+}
+
+
+/////////////////
+// TITLE
+////////////////
+
+.menuTitle {
+    color : white !important;
+    font-family: Poppins;
+    font-size: 1.8em;
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: 0em;
+}
+
+
+ .gradientText {
+     background-image: var(--gradient);
+     -webkit-background-clip: text !important;
+     -webkit-text-fill-color: transparent;
+     transition: all 1s ease;
+ }
+
+.gradientText:hover,
+.gradientText:focus {
+    text-shadow: 10px 10px 0px white,
+    20px 20px 0px #01cccc,
+    30px 30px 0px #00bdbd;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% { text-shadow: 0 0 0 0 red; }
+}
+
+
+
+ //////////////
+// DESIGN
+//////////////
+
+.square {
+    position: absolute;
+    height: 200px;
+    width:200px;
+    background: var(--gradient);
+    z-index: -10;
+}
+
+
+#svg1 {
+    animation:spin 90s linear infinite;
+    transform-origin: 50% 60%;
+}
+#svg2 {
+    animation:backspin 75s linear infinite;
+    transform-origin: 42% 50%;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes backspin { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes backspin { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes backspin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+
+
+
+ul.unstyled {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    padding: 0 0 6rem 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        line-height: 1.6rem;
+        display: flex;
+    }
+    li {
+        display: flex;
+        text-align: center;
+        background: transparent;
+        width: calc(100% / 3 - 2rem);
+        min-height: 100px;
+        margin-bottom: 2rem;
+        margin-right: 2rem;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border : solid 4px transparent;
+        border-image: linear-gradient(45deg, var(--gradientColor), white,var(--gradientColor2));
+        border-image-slice: 1;
+        transition: all 0.4s ease;
+
+
+
+        div {
+            border: none;
+            flex: 1
+        }
+    }
+}
+
+.svg {
+    height: 20px;
+}
+
+.formation {
+    max-width: 30vw;
+    margin-top: 70px;
+    h6 {
+        margin-top: 20px;
+    }
+}
