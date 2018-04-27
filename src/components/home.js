@@ -7,12 +7,10 @@ import Link from "react-router-dom/es/Link";
 export default class Home extends Component {
   constructor(props) {
     super(props);
-
     this.state = { x: 0, y: 0 , animate: new Animated.Value(0)};
   }
   _onMouseMove(e) {
     this.setState({ x: e.screenX, y: e.screenY });
-    //document.documentElement.style.setProperty('--gradientPrctg', e.screenY/1000 );
     const x = e.pageX - e.target.offsetLeft;
     const y = e.pageY - e.target.offsetTop;
     e.target.style.setProperty('--x', `${ x }px`);

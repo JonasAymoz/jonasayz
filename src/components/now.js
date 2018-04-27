@@ -54,7 +54,7 @@ export default class Now extends Component {
 		};
 
 		return (
-			<div className="page project-item">
+			<div className="page now">
 				<Animated.span style={goBackStyle} className="goBack">
 					<a
 						onClick={e => {
@@ -70,15 +70,20 @@ export default class Now extends Component {
 					className="square">
 					<span className="square"></span>
 				</Animated.span>
-				<h1>Now</h1>
-				<p>
-					<div> Date : {date} <br/></div>
-					<div>Techno : {techno}</div>
-					<div>Book : {book}</div>
-					<div>Music : {music}</div>
-				</p>
+				<h1 className="hidden-xs">Now</h1>
+				<div style={{flex : 1}}></div>
 
-				See older now ⟹
+				<div className='right' style={{flex : 3}}>
+					<p>
+						<div>Date : {date} <br/></div>
+						<div>Techno : {techno}</div>
+						<div>Book : {book}</div>
+						<div>Music : {music}</div>
+					</p>
+					<p><i>Now c'est un petit apercu du moment, de mes occupations, simplement. </i></p>
+
+					See older now ⟹
+				</div>
 			</div>
 		);
 	}

@@ -41,7 +41,7 @@ export default class Apropos extends Component {
 		};
 
 		return (
-			<div className="page about">
+			<div className="page now">
 				<div className="left" style={{position: 'absolute'}}>
 					<Animated.span style={goBackStyle} className="goBack">
 						<a
@@ -73,24 +73,24 @@ export default class Apropos extends Component {
 							<span className="bold">⟹ </span>Ingénieur informatique de l'Université technologique de Compiègne<br/>
 							<span className="bold">⟹ </span>Diplôme Mineur Technologie Culturelles du Numérique
 						</p>
-						<h6>Contact </h6>
-						<p className="smaller">
-							Pour un conseil, lancer un projet, ou aller boire un café, n’hésitez pas à me contacter !<br/>
-							<a href="mailto:jonas.aymoz@gmail.com"> m'envoyer un email ;)</a>
-						</p>
+						{/*<h6>Contact </h6>*/}
+						{/*<p className="smaller">*/}
+							{/*Pour un conseil, lancer un projet, ou aller boire un café, n’hésitez pas à me contacter !<br/>*/}
+							{/*<a href="mailto:jonas.aymoz@gmail.com"> m'envoyer un email ;)</a>*/}
+						{/*</p>*/}
 					</div>
 
 				</div>
 
 				<div style={{flex : 2}}></div>
 				<div className='right' style={{flex : 3}}>
-
+					<img src={cover} className="coverImg"/>
 					<h6>Hello,</h6>
 					<p>Je suis Jonas, ingénieur en informatique, et développeur freelance Web.<br/>
 
 						Si vous cherchez à développer un projet web,<u> vous êtes au bon endroit.</u></p>
-					<img src={cover} className="coverImg"/>
 
+					<br/>
 					<h6>Ce que je fait</h6>
 					<br/>
 					<ul className="unstyled">
@@ -209,6 +209,12 @@ export default class Apropos extends Component {
 							</div>
 						</li>
 					</ul>
+					<h6>Mais aussi</h6>
+					<p>
+						A côté du développement, je fait aussi  de la vidéo, du sport et
+					</p>
+					<br/>
+
 				</div>
 			</div>
 		);

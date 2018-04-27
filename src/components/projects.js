@@ -12,6 +12,10 @@ export default class Projects extends Component {
 		};
 	}
 	componentDidMount() {
+    this.setState(
+      {
+        projects: this.props.projects
+      });
 		this._renderProjects(this.props.projects);
 	}
 	componentWillReceiveProps(nextProps) {
@@ -22,7 +26,6 @@ export default class Projects extends Component {
 	_renderProjects(projects) {
 		this.setState(
 			{
-				projects: projects,
 				animations: projects.map((_, i) => new Animated.Value(0))
 			},
 			() => {
@@ -48,13 +51,13 @@ export default class Projects extends Component {
 								inputRange: [0, 1],
 								outputRange: ["12px", "0px"]
 							})},0)
-							`
+`
 						};
 						return (
 							<li key={i}>
 								<Animated.div style={style}>
 									<Link to={`/projects/${p.id}`}>
-										{p.title}
+										<h4>{p.title} - {p.id}</h4>
 									</Link>
 								</Animated.div>
 							</li>

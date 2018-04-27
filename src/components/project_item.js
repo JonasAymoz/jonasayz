@@ -36,7 +36,7 @@ export default class ProjectItem extends Component {
 		}
 	}
 	render() {
-		const { project: { title, body } } = this.state;
+		const { project: { title, body, id } } = this.state;
 		const goBackStyle = {
 			transform: Animated.template`
 				translate3d(${this.state.animate.interpolate({
@@ -72,7 +72,7 @@ export default class ProjectItem extends Component {
 					className="square">
 					<span className="square"></span>
 				</Animated.span>
-				<h1>{title && title}</h1>
+				<h1>{title && title} {id}</h1>
 				<p>{body && body}</p>
 			</div>
 		);

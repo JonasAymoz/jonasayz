@@ -13,8 +13,6 @@ $smallBreakpoint : 500px;
     --gradient : linear-gradient(to left, var(--gradientColor) 0%, var(--gradientColor2) 100%);
     --doubleGradient : linear-gradient(to right, var(--gradientColor) 0%, var(--gradientColor2) 50%, var(--gradientColor) 100%);
     --smallBreakpoint : 500px;
-    --x : 0;
-    --y : 0;
     --size: 0;
 }
 
@@ -253,7 +251,7 @@ main {
 
 }
 
-.about {
+.about, .now {
     flex-direction: row;
 }
 
@@ -369,7 +367,7 @@ ul.unstyled {
     display: flex;
     flex-flow: row wrap;
     list-style: none;
-    padding: 0 0 6rem 0;
+    padding: 0 0 0 0;
     margin: 0;
     justify-content: center;
     align-items: center;
@@ -418,6 +416,7 @@ ul.unstyled {
 }
 
 .coverImg {
-    height: 200px;
-    float: right;
+    height: 150px;
+    margin-right: 20px;
+    float: left;
 }
