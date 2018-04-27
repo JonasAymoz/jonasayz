@@ -7,12 +7,10 @@ import Link from "react-router-dom/es/Link";
 export default class Home extends Component {
   constructor(props) {
     super(props);
-
     this.state = { x: 0, y: 0 , animate: new Animated.Value(0)};
   }
   _onMouseMove(e) {
     this.setState({ x: e.screenX, y: e.screenY });
-    //document.documentElement.style.setProperty('--gradientPrctg', e.screenY/1000 );
     const x = e.pageX - e.target.offsetLeft;
     const y = e.pageY - e.target.offsetTop;
     e.target.style.setProperty('--x', `${ x }px`);
@@ -30,10 +28,9 @@ export default class Home extends Component {
   componentWillLeave () {
   	console.log('outa there');
     Animated.spring(this.state.animate, {toValue: 0}).start();
-	}
+  }
 
-	render() {
-    const { x, y } = this.state;
+  render() {
     const goBackStyle = {
       transform: Animated.template`
 				translate3d(${this.state.animate.interpolate({
@@ -43,11 +40,10 @@ export default class Home extends Component {
 			`,
       opacity: Animated.template`${this.state.animate}`
     };
-		return (
+
+    return (
 			<div className="page home">
-
 				<SvgMorph/>
-
 				<div className="left">
 					<h6>Hi, I'm Jonas <span className="gradientText"> Ayz</span></h6>
 					<h1>I'm making your web projects <span className="gradientText"> alive</span>  </h1>

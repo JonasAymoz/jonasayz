@@ -90,11 +90,17 @@ p.smaller {
   font-weight: bold !important;
 }
 
+.thin {
+  font-weight: 200;
+}
+
 .yearSpace{
   min-width: 10ch;
   display: inline-block;
   text-align: right;
 }
+
+
 
 @media screen and (max-width: 1000px) {
   h1 {

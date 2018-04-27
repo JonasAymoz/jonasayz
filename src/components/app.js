@@ -13,6 +13,9 @@ import posts from '../posts/posts';
 import nows from '../posts/nows';
 import Now from "./now";
 import Apropos from "./apropos";
+import Grabamerica from "../projects/grabamerica";
+import FlipFinder from "../projects/flipfinder";
+import Soundland from "../projects/Soundland";
 
 export default class App extends Component {
 	constructor(props) {
@@ -45,12 +48,12 @@ export default class App extends Component {
 										<Projects {...props} projects={this.state.projects} />
 									)}
 								/>
-								<Route
-									path="/projects/:id"
+{/*								<Route
+									path="/projects/:idProject"
 									render={props => (
 										<ProjectItem {...props} projects={this.state.projects} />
 									)}
-								/>
+								/>*/}
 								<Route
 									path="/now"
 									render={props => (
@@ -63,6 +66,24 @@ export default class App extends Component {
 										<Apropos {...props}  />
                   )}
 								/>
+                                <Route
+                                    path="/projects/grabamerica"
+                                    render={props => (
+                                        <Grabamerica {...props}  />
+                                    )}
+                                />
+                                <Route
+                                    path="/projects/flipfinder"
+                                    render={props => (
+                                        <FlipFinder {...props}  />
+                                    )}
+                                />
+                                <Route
+                                    path="/projects/Soundland"
+                                    render={props => (
+                                        <Soundland {...props}  />
+                                    )}
+                                />
 								<Route component={Missed} />
 							</AnimatedSwitch>
 						</TransitionGroup>

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import * as Animated from "animated/lib/targets/react-dom";
+import {Image} from "animated";
 
 export default class ProjectItem extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			project: {},
+            selectedProject: {},
 			animate: new Animated.Value(0)
 		};
 	}
@@ -23,10 +24,10 @@ export default class ProjectItem extends Component {
 	}
 	_renderProject(projects) {
 		let project = projects.filter(p => {
-			return (p.id = this.props.match.params.id);
+			return (p.id == this.props.match.params.idProject);
 		});
 		if (project.length) {
-			this.setState({ project: project[0] });
+			this.setState({ selectedProject: project[0] });
 			setTimeout(
 				() => {
           Animated.spring(this.state.animate, {toValue: 1}).start()
@@ -36,7 +37,7 @@ export default class ProjectItem extends Component {
 		}
 	}
 	render() {
-		const { project: { title, body } } = this.state;
+		const { selectedProject: { title, body, date, images } } = this.state;
 		const goBackStyle = {
 			transform: Animated.template`
 				translate3d(${this.state.animate.interpolate({
@@ -47,11 +48,11 @@ export default class ProjectItem extends Component {
 			opacity: Animated.template`${this.state.animate}`
 		};
 		const rotate = {
-      left: Animated.template`${this.state.animate.interpolate({
-      	inputRange: [0, 1],
-      	outputRange: ['-210px', '10px']
-    		})
-      }`,
+			left: Animated.template`${this.state.animate.interpolate({
+				inputRange: [0, 1],
+				outputRange: ['-210px', '10px']
+				})
+			}`,
 
 		};
 
@@ -73,6 +74,7 @@ export default class ProjectItem extends Component {
 					<span className="square"></span>
 				</Animated.span>
 				<h1>{title && title}</h1>
+				<p className="smaller"> <i>{date}</i></p>
 				<p>{body && body}</p>
 			</div>
 		);
