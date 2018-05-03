@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import TransitionGroup from "react-transition-group/TransitionGroup";
 import * as Animated from "animated/lib/targets/react-dom";
-import logoSoundland from "../images/projets/soundland.jpg";
-import graff from "../images/projets/soundlandGraff.jpg";
+import affiche from "../images/affiche_dramatic.jpg";
 
 import logo from '../images/logo-small.jpg';
 
-export default class Soundland extends Component {
+export default class Dramatic extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -62,26 +61,26 @@ export default class Soundland extends Component {
                     className="square">
                     <span className="square"></span>
                 </Animated.span>
-                <h1>Soundland</h1>
-                <p className="smaller"> <i>2014</i></p>
-                <p>Soundland</p>
+                <h1>Dramatic Amérique</h1>
+                <p className="smaller"> <i>2014 - 1h15 - Réalisé par Timothé Euvrard</i></p>
+                <p>Dramatic Amérique est un docu-fiction qui retrace la vie de reporter un peu perdu dans l'immensité Américaine, à la recherche du secret de l'Amérique, de son essence.
+                    En traversant le pays, ils s'aventurent dans sa culture, se perdent et se découvrent au fil des kilomètres.
+                </p>
+                <p className="d-flex center" style={{marginLeft : '20ch'}} >
+                    <img src={affiche} height="500"/>
 
-                <p className="d-flex" style={{marginLeft : '28ch'}} >
+
+                </p>
+                <p>
+                    Disponible online !
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rY4Mu7uL9EI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </p>
 
-                <p>
-                    <img src={logoSoundland} alt="" style={{width : '60%' ,'margin': 'auto', 'display': 'block'}}/>
-                    Soundland est un prototype d'installation sonore et interactive. <br/>
-                    Il est constitué de panneaux au sol en aluminium qui conduisent l'electricité et activent des capteurs. Ceux ci sont reliés via une interface Arduino (le Makey makey!)
-                    puis programmés pour déclencher des signaux midi. Enfin, un logiciel de synthèse sonore permet de moduler le son en fonction des déplacement de l'utilisateur.
-
-
-                    <img src={graff} alt="" style={{width : '100%'}}/>
-                </p>
 
                 <p>
-                    <ul className="nostyle">Soundland utilise : <br/>
-                        Makey Makey // Arduino // Electronic stuffs // Ableton live + MAX // des pas de danse !
+                    <ul className="nostyle">Dramatic Amérique a nécessité : <br/>
+                        Captation vidéo // Montage // Charte Graphique // des burgers //
                     </ul>
                 </p>
             </div>

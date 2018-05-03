@@ -54,6 +54,10 @@ main {
     flex: 1;
 }
 
+a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+}
 .animated-page-wrapper {
     position: fixed;
     top: 0;
@@ -163,7 +167,7 @@ main {
         }
     }
     &.projects {
-        flex-flow: column wrap;
+        flex-flow: column nowrap;
         h1 {
             margin: 0 0 62px 0;
         }
@@ -187,7 +191,7 @@ main {
     	align-items: center;
     	align-content: center;
     	justify-content: center;
-    	background: url("rdit.gif") no-repeat;
+    	background: url("../images/404.gif") no-repeat;
     	background-size: cover;
     	background-position: center center;
 
@@ -196,6 +200,18 @@ main {
     	}
     }
 }
+
+.section {
+    flex: 1;
+}
+
+hr {
+    border-bottom: var(--gradientColor) solid 1px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
 
 @media screen and (max-width: 1024px) {
 	* h1 {
@@ -448,18 +464,171 @@ ul.unstyled {
     }
 }
 
+// GRID FLEX
+
+
+.gridLinks{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.gridItem{
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    a {
+        max-width: 50%;
+        align-self: center;
+        opacity: 0;
+        color : white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: opacity 0.3s ease;
+    }
+    &:hover a {
+        opacity: 1;
+    }
+
+    @media (min-width: 48rem) {
+        width: 49%;
+        &:nth-child(odd) {
+            margin-right: 2%;
+        }
+    }
+
+    @media (min-width: 62rem) {
+        width: 12%;
+        &:not(:nth-child(4n)) {
+            margin-right: 2%;
+        }
+    }
+
+    &:before {
+        content: "";
+        float: left;
+        padding-top: 100%;
+    }
+
+}
+
+.van {
+    background-image: url('https://78.media.tumblr.com/d3bce3d309962df4a533636fe2c99811/tumblr_osnrsaBLcO1wtrvayo1_1280.jpg');
+    background-size: cover;
+}
+.lampe {
+    background-image: url('../images/lampe/IMG_3422.jpg');
+    background-size: cover;
+}
+
+
 
 /////////////
 // PROJET
 /////////////
 
-.Grabamerica {
-    background-image: url(../images/grabaBg.jpg);
+.grabamerica {
+    background-image: url(../images/projets/graba.jpg);
     background-size: 110%;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    transform-origin: 50% 50%;
+    .projectLink {
+        color: black;
+        font-weight: bold;
+    }
 
     &:hover {
         opacity: 1;
+        background-size: 110%;
+        transform: rotate(5deg);
+    }
+}
+
+.flipfinder {
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4a6 6 0 0 1-6-6h2c0 2.21 1.79 4 4 4a6 6 0 0 1 6 6c0 2.21 1.79 4 4 4a6 6 0 0 1 6 6c0 2.21 1.79 4 4 4v2a6 6 0 0 1-6-6c0-2.21-1.79-4-4-4a6 6 0 0 1-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' fill='%2361e294' fill-opacity='.41' fill-rule='evenodd'/%3E%3C/svg%3E");
+    overflow: hidden;
+    transition: background-size 3s ease;
+    &:hover {
         background-size: 114%;
     }
+}
+
+.soundLand {
+    background-image: url(../images/projets/soundlandBg1.png), url(../images/projets/soundlandbg2.png);
+    background-size: 110%;
+    transition: background-size 0.4s ease-in, background-position 0.4s ease-in;
+    transform-origin: 50% 50%;
+    &:hover {
+        background-size: 120%, 130%;
+        background-position: 25% 75%, 10% 7%;
+    }
+}
+
+.dramatic{
+    background-image:  url(../images/projets/drama2.png), url(../images/projets/drama0.png);
+    background-size: 20%, 100%;
+    background-repeat: no-repeat, no-repeat;
+    transition: background-size 0.4s ease-in, background-position 0.4s ease-in;
+    transform-origin: 50% 50%;
+    background-position: 20% 25%, 50% 50%;
+    &:hover {
+        background-size: 12%, 108%;
+        background-position: 20% 25%, 50% 50%;
+    }
+}
+
+.prints{
+    background-image:  url(../images/projets/prints.png), url(../images/projets/prints2.png);
+    background-size: 100%, 100%;
+    background-repeat: no-repeat, no-repeat;
+    transition: background-position 0.3s ease-in;
+    transform-origin: 50% 50%;
+    background-position: 50% 50%, 50% 800%;
+    &:hover {
+        background-position: 50% 50%, 50% 50%;
+    }
+}
+
+
+///////////
+// NOW
+//////////
+
+
+.now {
+    font-size: 1.8rem;
+    p {
+        line-height: 3rem;
+    }
+}
+
+.oldNow {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+
+    .now {
+        color : darkgrey;
+        font-size: 1rem;
+        flex: 1;
+
+        @media (max-width: 48rem) {
+            min-width: 100%;
+        }
+
+        @media (min-width: 48rem) {
+            min-width: 33%;
+        }
+
+        @media (min-width: 62rem) {
+            min-width: 25%;
+            max-width: 25%;
+        }
+    }
+
+
 }

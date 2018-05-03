@@ -45,7 +45,7 @@ export default class Home extends Component {
 			<div className="page home">
 				<SvgMorph/>
 				<div className="left">
-					<h6>Hi, I'm Jonas <span className="gradientText"> Ayz</span></h6>
+					<h1 className="name">Hi, I'm Jonas <span className="gradientText"> Ayz</span></h1>
 					<h1>I'm making your web projects <span className="gradientText"> alive</span>  </h1>
 					<p>
 						Développeur Web // Web-Designer // Chercheur d'interactions numériques

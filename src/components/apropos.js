@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import * as Animated from "animated/lib/targets/react-dom";
 import cover from '../images/coverPic.png';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faCode from '@fortawesome/fontawesome-free-solid/faCode';
 
 export default class Apropos extends Component {
 	constructor(props) {
@@ -105,9 +107,10 @@ export default class Apropos extends Component {
 						<li>
 							<h3>Développement Web</h3>
 							<div className="svg">
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enable-background="new 234.92 66.969 372.05 342.286" >
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enableBackground="new 234.92 66.969 372.05 342.286" >
 								<g>
 									<g>
+
 										<path d="M599.529,66.969H242.361c-4.107,0-7.44,3.333-7.44,7.44v327.404c0,4.115,3.333,7.441,7.44,7.441h357.168
 											c4.115,0,7.441-3.326,7.441-7.441V74.41C606.97,70.302,603.644,66.969,599.529,66.969z M592.088,394.374H249.802V81.851h342.286
 											V394.374z"/>
@@ -124,7 +127,7 @@ export default class Apropos extends Component {
 						<li>
 							<h3>Web design</h3>
 							<div className="svg">
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enable-background="new 234.92 66.969 372.05 342.286" >
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enableBackground="new 234.92 66.969 372.05 342.286" >
 									<g>
 										<g>
 											<path d="M599.529,66.969H242.361c-4.107,0-7.44,3.333-7.44,7.44v327.404c0,4.115,3.333,7.441,7.44,7.441h357.168
@@ -143,7 +146,7 @@ export default class Apropos extends Component {
 						<li>
 							<h3>Intégration HTML</h3>
 							<div className="svg">
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enable-background="new 234.92 66.969 372.05 342.286" >
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enableBackground="new 234.92 66.969 372.05 342.286" >
 									<g>
 										<g>
 											<path d="M599.529,66.969H242.361c-4.107,0-7.44,3.333-7.44,7.44v327.404c0,4.115,3.333,7.441,7.44,7.441h357.168
@@ -162,7 +165,7 @@ export default class Apropos extends Component {
 						<li>
 							<h3>Conception de projets numériques</h3>
 							<div className="svg">
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enable-background="new 234.92 66.969 372.05 342.286" >
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enableBackground="new 234.92 66.969 372.05 342.286" >
 									<g>
 										<g>
 											<path d="M599.529,66.969H242.361c-4.107,0-7.44,3.333-7.44,7.44v327.404c0,4.115,3.333,7.441,7.44,7.441h357.168
@@ -181,7 +184,7 @@ export default class Apropos extends Component {
 						<li>
 							<h3>Maquettage et prototypage</h3>
 							<div className="svg">
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enable-background="new 234.92 66.969 372.05 342.286" >
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enableBackground="new 234.92 66.969 372.05 342.286" >
 									<g>
 										<g>
 											<path d="M599.529,66.969H242.361c-4.107,0-7.44,3.333-7.44,7.44v327.404c0,4.115,3.333,7.441,7.44,7.441h357.168
@@ -200,7 +203,7 @@ export default class Apropos extends Component {
 						<li>
 							<h3>Déploiement et maintenance</h3>
 							<div className="svg">
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enable-background="new 234.92 66.969 372.05 342.286" >
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="234.92 66.969 372.05 342.286" enableBackground="new 234.92 66.969 372.05 342.286" >
 									<g>
 										<g>
 											<path d="M599.529,66.969H242.361c-4.107,0-7.44,3.333-7.44,7.44v327.404c0,4.115,3.333,7.441,7.44,7.441h357.168

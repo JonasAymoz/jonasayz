@@ -62,7 +62,7 @@ export default class Grabamerica extends Component {
                 </Animated.span>
                 <h1>Grabamerica</h1>
                 <p className="smaller"> <i>2012-2017</i></p>
-                <p className="smaller"> <i>Réalisé avec Camille Chrétien</i></p>
+                <p className="smaller"> <i>Réalisé avec Camille Chrétien - Financé par crowdfunding !</i></p>
                 <p>Grabamerica est un projet de webdocumentaire, un documentaire interactif, qui propose de découvrir et d'arpenter la jeunesse sud-Américaine par la rencontre et le voyage.</p>
 
                 <p className="d-flex" style={{marginLeft : '28ch'}} >
