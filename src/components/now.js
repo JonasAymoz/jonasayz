@@ -5,26 +5,23 @@ export default class Now extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			now: {},
+			nows: this.props.nows.filter(p => {return p.active === 0}),
+			activeNow : {},
 			animate: new Animated.Value(0)
 		};
 	}
-	componentDidMount() {
+    componentDidMount() {
 		if (this.props.nows.length) {
-			this._renderProject(this.props.nows);
+			this._renderNows(this.props.nows);
 		}
 	}
-	componentWillReceiveProps(nextProps) {
-		if (!this.props.nows.length && nextProps.nows.length) {
-			this._renderProject(nextProps.nows);
-		}
-	}
-	_renderProject(projects) {
-		let activeNow = projects.filter(p => {
+
+	_renderNows(nows) {
+		let activeNow = nows.filter(p => {
 			return (p.active === 1);
 		});
 		if (activeNow.length) {
-			this.setState({ now: activeNow[0] });
+			this.setState({ activeNow: activeNow[0] });
 			setTimeout(
 				() => {
           Animated.spring(this.state.animate, {toValue: 1}).start()
@@ -34,7 +31,7 @@ export default class Now extends Component {
 		}
 	}
 	render() {
-		const { now: { date, book, techno, color, music } } = this.state;
+		const { date, book, techno, music  } = this.state.activeNow;
 		const goBackStyle = {
 			transform: Animated.template`
 				translate3d(${this.state.animate.interpolate({
@@ -54,7 +51,7 @@ export default class Now extends Component {
 		};
 
 		return (
-			<div className="page now">
+			<div className="page project-item">
 				<Animated.span style={goBackStyle} className="goBack">
 					<a
 						onClick={e => {
@@ -70,19 +67,37 @@ export default class Now extends Component {
 					className="square">
 					<span className="square"></span>
 				</Animated.span>
-				<h1 className="hidden-xs">Now</h1>
-				<div style={{flex : 1}}></div>
 
-				<div className='right' style={{flex : 3}}>
+                <h1>Now</h1>
+
+                <div className="now">
+
 					<p>
-						<div>Date : {date} <br/></div>
-						<div>Techno : {techno}</div>
-						<div>Book : {book}</div>
-						<div>Music : {music}</div>
+						<div><i><small>-{this.state.activeNow.date}-</small></i><br/></div>
+						<div>Techno : {this.state.activeNow.techno}</div>
+						<div>Book : {this.state.activeNow.book}</div>
+						<div>Music : {this.state.activeNow.music}</div>
+                        <div>Color : <span style={{'background' : this.state.activeNow.color, 'color' : 'white'}}> {this.state.activeNow.color}</span> </div>
 					</p>
-					<p><i>Now c'est un petit apercu du moment, de mes occupations, simplement. </i></p>
+				</div>
 
-					See older now ⟹
+                <hr/>
+				<div className="oldNow">
+
+                    {this.state.nows.map((p, i) => {
+                        return (
+                            <div className="now">
+								<p>
+									<div><i>-{p.date}- </i><br/></div>
+									<div>Techno : {p.techno}</div>
+									<div>Book : {p.book}</div>
+									<div>Music : {p.music}</div>
+									<div>Color : <span style={{'background' : p.color, 'color' : 'white'}}> {p.color}</span> </div>
+								</p>
+							</div>
+                        );
+                    })}
+
 				</div>
 			</div>
 		);

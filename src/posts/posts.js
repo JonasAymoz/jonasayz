@@ -4,6 +4,7 @@ const posts = [
     {
         "id": 1,
         "title": "Grabamerica",
+        "class": "grabamerica",
         "desc" :"Webdocumentaire interactif",
         "body": "Projet de webdocumentaire en amérique du sud",
         "date": "2012 - 2017",
@@ -17,6 +18,7 @@ const posts = [
     {
         "id": 2,
         "title":"Flip Finder",
+        "class" :"flipfinder",
         "desc" :"LA Web App pour trouver un flipper",
         "date": "Janvier - Mars 2018",
         "body": "Application",
@@ -25,23 +27,36 @@ const posts = [
         },
         "link" : "/flipfinder"
     },
-    {
-        "id": 3,
-        "title": "Soundland",
-        "body": "Prototype de surface/controleur sonore",
-        "images":{
-            "main":"../images/rdit.gif"
-        },
-        "link" : "/Soundland"
-    },
+
     {
         "id": 4,
         "title": "Dramatic Amerique",
+        "class" :"dramatic",
         "body": "",
         "images":{
             "main":"../images/rdit.gif"
         },
         "link" : "/DramaticAmerique"
+    },
+    {
+        "id": 4,
+        "title": "Graphic & Print",
+        "class" : "prints",
+        "body": "",
+        "images":{
+            "main":"../images/rdit.gif"
+        },
+        "link" : "/Graphic"
+    },
+    {
+        "id": 3,
+        "title": "Soundland",
+        "class":"soundLand",
+        "body": "Prototype de surface/controleur sonore",
+        "images":{
+            "main":"../images/rdit.gif"
+        },
+        "link" : "/Soundland"
     },
 
     ];

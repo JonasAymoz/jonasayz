@@ -57,7 +57,6 @@ const nows = [
         "color" : "#F6AE2D",
         "music" :" Sound of life",
     },
-{'active': 1, 'book': 'Comprendre le pouvoir - Noam Chomsky', 'date': '31/10/18', 'techno': 'PAs grand chose la', 'color': '#74C9DA', 'music': 'Road 2 paradise - Exalt'},
 ];
 
 

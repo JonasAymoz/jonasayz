@@ -17,6 +17,12 @@ import Grabamerica from "../projects/grabamerica";
 import FlipFinder from "../projects/flipfinder";
 import Soundland from "../projects/Soundland";
 
+import fontawesome from '@fortawesome/fontawesome';
+import brands from '@fortawesome/fontawesome-free-brands';
+import Dramatic from "../projects/dramatic";
+
+fontawesome.library.add(brands);
+
 export default class App extends Component {
 	constructor(props) {
 		super(props);
@@ -82,6 +88,12 @@ export default class App extends Component {
                                     path="/projects/Soundland"
                                     render={props => (
                                         <Soundland {...props}  />
+                                    )}
+                                />
+                                <Route
+                                    path="/projects/DramaticAmerique"
+                                    render={props => (
+                                        <Dramatic {...props}  />
                                     )}
                                 />
 								<Route component={Missed} />
