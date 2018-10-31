@@ -28,10 +28,9 @@ export default class Home extends Component {
   componentWillLeave () {
   	console.log('outa there');
     Animated.spring(this.state.animate, {toValue: 0}).start();
-	}
+  }
 
-	render() {
-    const { x, y } = this.state;
+  render() {
     const goBackStyle = {
       transform: Animated.template`
 				translate3d(${this.state.animate.interpolate({
@@ -41,11 +40,10 @@ export default class Home extends Component {
 			`,
       opacity: Animated.template`${this.state.animate}`
     };
-		return (
+
+    return (
 			<div className="page home">
-
 				<SvgMorph/>
-
 				<div className="left">
 					<h6>Hi, I'm Jonas <span className="gradientText"> Ayz</span></h6>
 					<h1>I'm making your web projects <span className="gradientText"> alive</span>  </h1>

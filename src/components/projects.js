@@ -12,10 +12,6 @@ export default class Projects extends Component {
 		};
 	}
 	componentDidMount() {
-    this.setState(
-      {
-        projects: this.props.projects
-      });
 		this._renderProjects(this.props.projects);
 	}
 	componentWillReceiveProps(nextProps) {
@@ -24,19 +20,20 @@ export default class Projects extends Component {
 		}
 	}
 	_renderProjects(projects) {
-		this.setState(
-			{
-				animations: projects.map((_, i) => new Animated.Value(0))
-			},
-			() => {
-				Animated.stagger(
-					100,
-					this.state.animations.map(anim =>
-						Animated.spring(anim, { toValue: 1 })
-					)
-				).start();
-			}
-		);
+        this.setState(
+            {
+                projects: projects,
+                animations: projects.map((_, i) => new Animated.Value(0))
+            },
+            () => {
+                Animated.stagger(
+                    100,
+                    this.state.animations.map(anim =>
+                        Animated.spring(anim, { toValue: 1 })
+                    )
+                ).start();
+            }
+        );
 	}
 	render() {
 		return (
@@ -51,19 +48,48 @@ export default class Projects extends Component {
 								inputRange: [0, 1],
 								outputRange: ["12px", "0px"]
 							})},0)
-`
+							`
 						};
 						return (
-							<li key={i}>
+							<li key={i} className={p.title}>
 								<Animated.div style={style}>
-									<Link to={`/projects/${p.id}`}>
-										<h4>{p.title} - {p.id}</h4>
+									<Link to={`/projects${p.link}`} className='projectLink'>
+										<span>{p.title}</span>
+                                        <small>{p.desc}</small>
 									</Link>
+
 								</Animated.div>
 							</li>
 						);
 					})}
 				</TransitionGroup>
+				<div>
+					<h2><span className="gradientText">C</span>reative </h2>
+					<h6>
+						<a href="https://soundcloud.com/somefeed" alt="soundcloud"> Soundclound : musique & sons </a>
+					</h6>
+					<h6>
+						<a href="https://vimeo.com/user3377935" alt="soundcloud"> Viméo : vidéo  </a>
+					</h6>
+                    <h6>
+                        <a href="https://codepen.io/jonasAymoz/" alt="soundcloud"> Codepen : code fun ! </a>
+                    </h6>
+                    <h6>
+                        <a href="https://www.flickr.com/photos/164167185@N07/" alt="soundcloud"> Photos : around the planet </a>
+                    </h6>
+				</div>
+                <div>
+                    <h2><span className="gradientText">M</span>aking  </h2>
+					<h6>
+						<a href="http://monstervan.tumblr.com/" alt="soundcloud"> Aménagement d'un vieux Van !</a>
+					</h6>
+					<h6>
+						<a href="#" alt="soundcloud"> Luminaire via découpe laser </a>
+					</h6>
+					<h6>
+						<a href="#" alt="soundcloud"> Objets en découpe laser</a>
+					</h6>
+                </div>
 			</div>
 		);
 	}

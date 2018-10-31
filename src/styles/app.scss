@@ -13,6 +13,8 @@ $smallBreakpoint : 500px;
     --gradient : linear-gradient(to left, var(--gradientColor) 0%, var(--gradientColor2) 100%);
     --doubleGradient : linear-gradient(to right, var(--gradientColor) 0%, var(--gradientColor2) 50%, var(--gradientColor) 100%);
     --smallBreakpoint : 500px;
+    --x : 0;
+    --y : 0;
     --size: 0;
 }
 
@@ -108,7 +110,7 @@ main {
             div {
                 display: flex;
                 flex: 1;
-                border: 1px solid #BADA55;
+                border: 1px solid var(--gradientColor2);
             }
             a {
                 display: flex;
@@ -120,10 +122,31 @@ main {
                 text-align: center;
                 text-decoration: none;
                 color: black;
+
                 &:hover {
                     text-decoration: line-through;
+
+                    small{
+                        font-size: 1.4rem;
+                        margin-top: 5px;
+                        height: auto;
+                    }
                 }
+                span {
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+                small{
+                    font-size: 1.4rem;
+                    margin-top: 5px;
+                }
+
             }
+
+            &:hover {
+
+            }
+
         }
     }
     &.home {
@@ -140,7 +163,7 @@ main {
         }
     }
     &.projects {
-        flex-flow: row wrap;
+        flex-flow: column wrap;
         h1 {
             margin: 0 0 62px 0;
         }
@@ -251,7 +274,7 @@ main {
 
 }
 
-.about, .now {
+.about {
     flex-direction: row;
 }
 
@@ -367,7 +390,7 @@ ul.unstyled {
     display: flex;
     flex-flow: row wrap;
     list-style: none;
-    padding: 0 0 0 0;
+    padding: 0 0 6rem 0;
     margin: 0;
     justify-content: center;
     align-items: center;
@@ -394,8 +417,6 @@ ul.unstyled {
         border-image-slice: 1;
         transition: all 0.4s ease;
 
-
-
         div {
             border: none;
             flex: 1
@@ -416,7 +437,29 @@ ul.unstyled {
 }
 
 .coverImg {
-    height: 150px;
-    margin-right: 20px;
-    float: left;
+    height: 200px;
+    background: linear-gradient(0deg, var(--gradientColor), var(--gradientColor2), white 70% );
+    background-size: 100% 200%;
+    background-position: 0% 200%;
+    transition: all 0.4s ease;
+    &:hover {
+        //background: linear-gradient(45deg, var(--gradientColor), white);
+        background-position: 0% 293%;
+    }
+}
+
+
+/////////////
+// PROJET
+/////////////
+
+.Grabamerica {
+    background-image: url(../images/grabaBg.jpg);
+    background-size: 110%;
+    transition: all 0.3s ease;
+
+    &:hover {
+        opacity: 1;
+        background-size: 114%;
+    }
 }
