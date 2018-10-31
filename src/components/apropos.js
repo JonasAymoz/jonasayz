@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as Animated from "animated/lib/targets/react-dom";
-import cover from '../images/coverPic.png';
+import cover from '../images/coverPic.jpg';
 
 export default class Apropos extends Component {
 	constructor(props) {
