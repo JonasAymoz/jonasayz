@@ -66,7 +66,7 @@ export default class Apropos extends Component {
 
 						<h6>Expériences </h6>
 						<p className="smaller">
-							<span className="bold yearSpace"> Now :</span> Développeur Freelance Web ;) <br/>
+							<span className="bold yearSpace"> Now :</span> Développeur Freelance Web  Bordeaux/Begles ;) <br/>
 							<span className="bold yearSpace"> 2017 :</span> Ingénieur Projet Web @Coreoz <br/>
 							<span className="bold yearSpace">2015 - 2016 :</span> Ingénieur Web - Full Stack @Cardiweb<br/>
 						</p>

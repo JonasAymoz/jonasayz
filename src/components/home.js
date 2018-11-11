@@ -51,7 +51,7 @@ export default class Home extends Component {
 						Développeur Web // Web-Designer // Chercheur d'interactions numériques
 					</p>
 				</div>
-				<Animated.div style={goBackStyle} className="right" onMouseMove={this._onMouseMove.bind(this)}>
+				<Animated.div style={goBackStyle} className="right hidden-xs" onMouseMove={this._onMouseMove.bind(this)}>
 					<div className="centerFlex">
 					<p>
 						<p className="menuTitle"> <Link to="/apropos">A propos</Link></p>

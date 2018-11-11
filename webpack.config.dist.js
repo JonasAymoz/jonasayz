@@ -35,7 +35,7 @@ module.exports = {
 								"stage-0"
 							],
 							plugins: [
-								"react-hot-loader/patch",
+								"react-hot-loader/babel",
 								"transform-decorators-legacy"
 							]
 						}
@@ -88,7 +88,7 @@ module.exports = {
 	plugins: [
 		new webpack.NoEmitOnErrorsPlugin(),
 		new HtmlWebpackPlugin({
-			template: "index.html"
+			template: "./index.html"
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: "vendor"
