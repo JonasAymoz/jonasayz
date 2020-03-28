@@ -4,6 +4,7 @@ import TransitionGroup from "react-transition-group/TransitionGroup";
 import * as Animated from "animated/lib/targets/react-dom";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
+
 export default class Projects extends Component {
 	constructor(props) {
 		super(props);
@@ -53,7 +54,7 @@ export default class Projects extends Component {
 								`
 							};
 							return (
-								<li key={i} className={p.class}>
+								<li key={i} className={p.thumbClass}>
 									<Animated.div style={style}>
 										<Link to={`/projects${p.link}`} className='projectLink'>
 											<span>{p.title}</span>

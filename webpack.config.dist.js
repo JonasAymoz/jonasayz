@@ -81,7 +81,8 @@ module.exports = {
 						}
 					}
 				]
-			}
+			},
+            { test: /\.md$/, loader: "html!markdown" }
 		]
 	},
 

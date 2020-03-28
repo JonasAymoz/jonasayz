@@ -9,8 +9,10 @@ export default class TopBar extends Component {
 					<NavLink exact to="/">Home</NavLink>
 					<NavLink to="/projects">Projects</NavLink>
 					<NavLink to="/apropos">A propos</NavLink>
+                    <NavLink to="/lab">Lab</NavLink>
 					<NavLink to="/now">Now</NavLink>
-					<a href='mailto:jonas.aymoz@gmail.com'> Contact</a>
+                    <NavLink to="/contact">Contact</NavLink>
+
 				</nav>
 			</div>
 		)

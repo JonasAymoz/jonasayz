@@ -14,7 +14,7 @@ module.exports = {
 
 	devServer: {
 		hot: true,
-		contentBase: resolve(__dirname, "dist"),
+		contentBase: resolve(__dirname, "public"),
 		host: "0.0.0.0",
 		publicPath: `/`,
 		historyApiFallback: true,
@@ -84,7 +84,11 @@ module.exports = {
 						}
 					}
 				]
-			}
+			},
+            {
+                test: /\.md/i,
+                use: 'raw-loader',
+            },
 		]
 	},
 

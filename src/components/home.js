@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom";
 import SvgMorph from "./svgMorph";
 import * as Animated from "animated/lib/targets/react-dom";
 import Link from "react-router-dom/es/Link";
+import image from '../../public/1.jpg';
 
 export default class Home extends Component {
   constructor(props) {
@@ -46,10 +47,12 @@ export default class Home extends Component {
 				<SvgMorph/>
 				<div className="left">
 					<h1 className="name">Hi, I'm Jonas <span className="gradientText"> Ayz</span></h1>
-					<h1>I'm making your web projects <span className="gradientText"> alive</span>  </h1>
+					<h1>I'm making web projects <span className="gradientText"> alive</span>  </h1>
 					<p>
-						Développeur Web // Web-Designer // Chercheur d'interactions numériques
+						Développeur Web // Web&More Designer //
 					</p>
+                    <img src='/1.jpg' alt="de"/>
+                    <img src={image} alt="de"/>
 				</div>
 				<Animated.div style={goBackStyle} className="right hidden-xs" onMouseMove={this._onMouseMove.bind(this)}>
 					<div className="centerFlex">

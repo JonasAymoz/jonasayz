@@ -1,13 +1,17 @@
+// query sass var
 
-
-// Var
-$smallBreakpoint : 500px;
+$breakpoint-xl:1400px;
+$breakpoint-l: 1024px;
+$breakpoint-m : 900px;
+$breakpoint-s: 600px;
 
 @import "~normalize.css/normalize.css";
 @import 'typo';
 
+
+
 // CSS VAR
-:root{
+html{
     --gradientColor : #74ebd5;
     --gradientColor2 : #9face6;
     --gradient : linear-gradient(to left, var(--gradientColor) 0%, var(--gradientColor2) 100%);
@@ -16,6 +20,10 @@ $smallBreakpoint : 500px;
     --x : 0;
     --y : 0;
     --size: 0;
+    --breakpoint-xl:1400px;
+    --breakpoint-l: 1024px;
+    --breakpoint-m : 900px;
+    --breakpoint-s: 600px;
 }
 
 html {
@@ -29,11 +37,12 @@ html,
 body,
 #root,
 .wrapper {
-    display: block;
-    height: 100%;
+    display: flex;
+    min-height: 100%;
     width: 100%;
-    max-height: 100vh;
-    overflow: hidden;
+    //max-height: 100vh;
+    //overflow: hidden;
+    flex:1;
     color: black;
     font-family: "Cerebri Sans", Avenir, Helvetica, Segoe UI, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -66,7 +75,7 @@ a, a:visited, a:hover, a:active {
     flex-flow: column;
     flex: 1;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .top-bar {
@@ -91,7 +100,13 @@ a, a:visited, a:hover, a:active {
     }
 }
 
+
+.page::-webkit-scrollbar {
+    display: none;
+    scrollbar-width: none;
+}
 .page {
+    scrollbar-width: none;
     display: flex;
     flex: 1;
     flex-flow: column;
@@ -99,6 +114,13 @@ a, a:visited, a:hover, a:active {
     height: 100%;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    max-width: 1400px;
+    margin: auto;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
     ul {
         display: flex;
         flex-flow: row wrap;
@@ -114,43 +136,9 @@ a, a:visited, a:hover, a:active {
             div {
                 display: flex;
                 flex: 1;
-                border: 1px solid var(--gradientColor2);
+                box-shadow:  15px 15px 30px #cfd9d6,
+                -15px -15px 30px #ffffff;
             }
-            a {
-                display: flex;
-                flex: 1;
-                flex-flow: column;
-                padding: 4rem;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                text-decoration: none;
-                color: black;
-
-                &:hover {
-                    text-decoration: line-through;
-
-                    small{
-                        font-size: 1.4rem;
-                        margin-top: 5px;
-                        height: auto;
-                    }
-                }
-                span {
-                    font-size: 2rem;
-                    font-weight: bold;
-                }
-                small{
-                    font-size: 1.4rem;
-                    margin-top: 5px;
-                }
-
-            }
-
-            &:hover {
-
-            }
-
         }
     }
     &.home {
@@ -176,6 +164,7 @@ a, a:visited, a:hover, a:active {
         }
     }
     &.project-item {
+        background: white;
         h1 {
             max-width: 35ch;
         }
@@ -185,6 +174,9 @@ a, a:visited, a:hover, a:active {
         .goBack {
             font-size: 2rem;
             cursor: pointer;
+        }
+        div{
+            max-width: 100%;
         }
     }
     &.missed {
@@ -201,6 +193,44 @@ a, a:visited, a:hover, a:active {
     }
 }
 
+
+
+.project {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 3fr;
+    grid-gap: 10px;
+    img {
+        max-width: 100vw;
+        width: 100%;
+    }
+    .projectList{
+        flex-direction: column;
+        li {
+            height: 20px;
+            width: 100%;
+            min-height: 0;
+            p{
+                font-size: 1.5rem;
+            }
+            .listTitle {
+                font-weight: bold;
+                font-size: 1rem;
+                display: block;
+            }
+        }
+    }
+
+    .gif {
+        max-height: 400px;
+        margin: auto;
+        img{
+            max-height: 400px;
+        }
+    }
+}
+
+
 .section {
     flex: 1;
 }
@@ -213,15 +243,61 @@ hr {
 }
 
 
-@media screen and (max-width: 1024px) {
-	* h1 {
-		max-width: 100% !important;
-	}
+
+
+
+
+///////
+// MEDIA QUERY
+//////
+
+
+@media screen and (max-width: $breakpoint-l) {
+    * h1 {
+        max-width: 100% !important;
+    }
     .top-bar {
         padding: 0 1rem;
     }
     .page {
         padding: calc(62px + 3rem) 1rem 1rem 1rem;
+        max-width: 980px;
+        ul {
+            li {
+                width: 50%;
+                margin-right: 0;
+            }
+        }
+        ul.unstyled {
+            li {
+                margin-right: 1em;
+                width: 47%;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: $breakpoint-m)  {
+    .project {
+        grid-template-columns: 1fr 1fr;
+
+        img{
+            object-fit: cover;
+        }
+        iframe{
+            max-width: 100vw;
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-s) {
+  .project {
+    grid-template-columns: calc(100vw);
+  }
+    .page {
+        padding: calc(62px + 3rem) 1rem 1rem 1rem;
+        max-width: 980px;
         ul {
             li {
                 width: 100%;
@@ -238,26 +314,9 @@ hr {
 
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1140px) {
-    .page {
-        ul {
-            li {
-                width: calc(100% / 3 - 2rem);
-            }
-        }
-    }
-}
 
-@media screen and (max-width: 600px) {
-    .page {
-        ul.unstyled {
-            li {
-                margin-right: 0em;
-                width: 100%;
-            }
-        }
-    }
-}
+
+
 //////////////////////////////////////////
 // Layout
 //////////////////////////////////////////
@@ -294,7 +353,11 @@ hr {
     flex-direction: row;
 }
 
-@media screen and (max-width: $smallBreakpoint) {
+.content {
+    max-width: 1400px;
+}
+
+@media screen and (max-width: $breakpoint-s) {
     .hidden-xs {
         display: none;
     }
@@ -381,7 +444,18 @@ hr {
     width:200px;
     background: var(--gradient);
     z-index: -10;
+
+    &.lab{
+        position: absolute;
+        height: 100px;
+        width:100px;
+        top: -20px;
+        background-size: cover;
+        background-position: center center;
+    }
 }
+
+
 
 
 #svg1 {
@@ -403,31 +477,23 @@ hr {
 
 
 ul.unstyled {
-    display: flex;
-    flex-flow: row wrap;
+    //display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     list-style: none;
-    padding: 0 0 6rem 0;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
+
 
     h3 {
         font-size: 1.4rem;
         margin-bottom: 1rem;
         line-height: 1.6rem;
-        display: flex;
     }
     li {
         display: flex;
         text-align: center;
-        background: transparent;
-        width: calc(100% / 3 - 2rem);
         min-height: 100px;
-        margin-bottom: 2rem;
-        margin-right: 2rem;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
         border : solid 4px transparent;
         border-image: linear-gradient(45deg, var(--gradientColor), white,var(--gradientColor2));
         border-image-slice: 1;
@@ -526,11 +592,83 @@ ul.unstyled {
 
 
 
+// to sort
+
+.skills {
+  li {
+    background: white;
+    box-shadow:  32px 32px 65px #d4d4d4,
+    -32px -32px 65px #ffffff;
+  }
+}
+.skill-list{
+    padding-top: 17px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 1rem;
+    margin-bottom: 50px;
+    box-shadow:  10px 10px 65px #d4d4d4, 20px 0px 65px #fff;
+    background-blend-mode: color;
+    background-position: center;
+    background-size: cover;
+
+    &:nth-child(even){
+        align-items: end;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 2.2rem;
+        line-height: 2.2rem;
+        margin-top: -35px;
+        mix-blend-mode: darken;
+        margin-bottom: 50px;
+        opacity: 1;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+
+    &:nth-child(1){
+        background-image:linear-gradient(var(--gradientColor), var(--gradientColor2)),url("https://source.unsplash.com/900x200/?website");
+        background-position: center;
+        background-size: cover;
+    }
+    &:nth-child(2){
+        background-image:linear-gradient(var(--gradientColor), var(--gradientColor2)), url("https://source.unsplash.com/900x200/?wireframe");
+    }
+    &:nth-child(3){
+        background-image:linear-gradient(var(--gradientColor), var(--gradientColor2)), url("https://source.unsplash.com/900x200/?design");
+    }
+    &:nth-child(4){
+        background-image:linear-gradient(var(--gradientColor), var(--gradientColor2)), url("https://source.unsplash.com/900x200/?javascript");
+    }
+    &:nth-child(5){
+        background-image:linear-gradient(var(--gradientColor), var(--gradientColor2)), url("https://source.unsplash.com/900x200/?html");
+    }
+    &:nth-child(6){
+        background-image:linear-gradient(var(--gradientColor), var(--gradientColor2)), url("https://source.unsplash.com/900x200/?server");
+
+    }
+}
+
+
+
+
+
 /////////////
 // PROJET
 /////////////
 
-.grabamerica {
+li.grabamericaPage {
     background-image: url(../images/projets/graba.jpg);
     background-size: 110%;
     transition: all 0.4s ease;
@@ -543,15 +681,18 @@ ul.unstyled {
     &:hover {
         opacity: 1;
         background-size: 110%;
-        transform: rotate(5deg);
+        transform: perspective(200px) rotateY(3deg);
     }
 }
 
-.flipfinder {
+.flipfinderThumb {
     background-color: #fff;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4a6 6 0 0 1-6-6h2c0 2.21 1.79 4 4 4a6 6 0 0 1 6 6c0 2.21 1.79 4 4 4a6 6 0 0 1 6 6c0 2.21 1.79 4 4 4v2a6 6 0 0 1-6-6c0-2.21-1.79-4-4-4a6 6 0 0 1-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' fill='%2361e294' fill-opacity='.41' fill-rule='evenodd'/%3E%3C/svg%3E");
     overflow: hidden;
-    transition: background-size 3s ease;
+    background-size: 10%;
+    background-position: 50% 50%;
+    background-origin: content-box;
+    transition: all 0.3s ease;
     &:hover {
         background-size: 114%;
     }
@@ -631,4 +772,245 @@ ul.unstyled {
     }
 
 
+}
+
+
+///////////
+// GATE
+//////////
+
+a.gate{
+    //background: black !important;
+    color: white;
+    a {
+        color: white;
+    }
+}
+
+
+
+// CARD
+
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .projectLink {
+        flex: 1;
+    }
+}
+
+
+
+
+
+/// Square css-grid
+@media screen and (max-width: $breakpoint-s) {
+    :root {
+        // We just need to know these 3 values up front:
+        --wrapperWidth: calc(100vw - 2rem); // e.g. Must be a viewport unit or fixed valueundefined e.g. 100vwundefined or 1200px
+        --noOfColumns: 1;
+        --gutter: 10px;
+
+        --noOfGutters: calc(var(--noOfColumns) - 1);
+        --rowHeight: calc((var(--wrapperWidth) - (var(--noOfGutters) * var(--gutter))) / var(--noOfColumns));
+        --noOfColumnsLab : 2;
+    }
+}
+
+@media screen and (min-width: $breakpoint-s) and (max-width: $breakpoint-l){
+    :root {
+        // We just need to know these 3 values up front:
+        --wrapperWidth: calc(100vw - 2rem); // e.g. Must be a viewport unit or fixed valueundefined e.g. 100vwundefined or 1200px
+        --noOfColumns: 3;
+        --gutter: 10px;
+
+        --noOfGutters: calc(var(--noOfColumns) - 1);
+        --rowHeight: calc((var(--wrapperWidth) - (var(--noOfGutters) * var(--gutter))) / var(--noOfColumns));
+        --noOfColumnsLab : 3;
+    }
+}
+
+@media screen and (min-width: $breakpoint-l) and (max-width: $breakpoint-xl) {
+    :root {
+        --wrapperWidth: calc(100vw - 6rem);
+        --noOfColumns: 4;
+        --gutter: 10px;
+        --noOfGutters: calc(var(--noOfColumns) - 1);
+        --rowHeight: calc((var(--wrapperWidth) - (var(--noOfGutters) * var(--gutter))) / var(--noOfColumns));
+        --noOfColumnsLab : 6;
+    }
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+    :root {
+        --noOfColumns: 4; // increasing the number of columns after the 42em breakpoint
+        --wrapperWidth: 1400px;
+        --gutter: 10px;
+        --noOfGutters: calc(var(--noOfColumns) - 1);
+        --rowHeight: calc((var(--wrapperWidth) - (var(--noOfGutters) * var(--gutter))) / var(--noOfColumns));
+        --noOfColumnsLab : 6;
+    }
+}
+:root {
+    // And our aspect ratio:
+    --ratioA: 1;
+    --ratioB: 1;
+    --rowLabHeight : calc((var(--wrapperWidth) - (var(--noOfGutters) * var(--gutter))) / var(--noOfColumnsLab));
+}
+
+.gridSquare-Lab {
+
+    display: grid;
+    grid-template-columns: repeat(var(--noOfColumnsLab), 1fr);
+    width: var(--wrapperWidth);
+    grid-auto-rows: var(--rowLabHeight);
+    grid-gap: var(--gutter);
+
+    a {
+        background-size: cover;
+        background-position: center center;
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+        height: 100%;
+
+
+        &:hover {
+            //background-blend-mode: color;
+            //background : linear-gradient(to right, var(--gradientColor), var(--gradientColor2)) !important;
+
+            h3 {
+
+                opacity: 1;
+
+                transform: translateY(0px);
+            }
+        }
+        h3 {
+            z-index: 3;
+            opacity: 0;
+            color : white;
+            transform: translateY(10px);
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+.gridSquare {
+    width: var(--wrapperWidth);
+    display: grid;
+    grid-template-columns: repeat(var(--noOfColumns), 1fr);
+    grid-auto-rows: var(--rowHeight);
+    grid-gap: var(--gutter);
+
+    a {
+        background-size: cover;
+        background-position: center center;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: radial-gradient(farthest-corner at 40px 40px,
+                    var(--gradientColor) 0%, var(--gradientColor2) 100%) !important;
+            h3 {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        h3 {
+            z-index: 3;
+            opacity: 0;
+            color : white;
+            transform: translateY(10px);
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+        }
+    }
+}
+
+
+.squareGridItem {
+    box-shadow:  8px -8px 46px #e8e8e8,
+    -8px 8px 46px #ffffff;
+}
+
+.labGridItem {
+    background-size: cover;
+    background-position: center center;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+    &.bigger {
+        width: calc(var(--rowHeight) * 2);
+        height: calc(var(--rowHeight) * 2);
+    }
+
+}
+
+
+@media screen and (max-width: $breakpoint-s) {
+    .labCollapseItem {
+        padding: 1rem;
+    }
+    .labTitleContainer{
+        margin-left: 110px;
+    }
+}
+
+
+.labCollapseItem {
+    min-height: 100%;
+    position: fixed;
+    top: 10rem;
+    width: 100%;
+    z-index: 10;
+    background: radial-gradient(farthest-corner at 40px 40px,
+            rgba(255, 255, 255, 1) 10%, var(--gradientColor2) 100%);
+    left: 0;
+    transform: translate3d(0,0%,0);
+    transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) ;
+    transition-delay: 0s,  0s, 0s;
+    transition-property: opacity, transform, z-index;
+    padding: 1rem 3rem;
+
+    &.hidden {
+        //display: none;
+        opacity: 0;
+        z-index: -10;
+        transform: translate3d(0,20%,0);
+        transition-delay: 0s,  0s, 0.5s;
+    }
+
+    .goBack{
+        font-size: 2rem;
+        text-decoration: none;
+        cursor: pointer;
+        text-decoration: none;
+
+    }
+
+    h3.title {
+        font-size : var(--h2-size);
+        line-height: 1em;
+        display: inline-block;
+        margin: 0;
+    }
+
+}
+
+.labTitleContainer{
+    margin-left: 100px;
+}
+.labSubtitle {
+    font-size: 1rem;
+    margin-bottom: 4rem;
+}
+.whiteblur {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.4);
+    top : 0;
+    left: 0;
 }

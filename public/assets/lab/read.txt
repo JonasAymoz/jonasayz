@@ -1,0 +1,12 @@
+To Add lab entrie
+
+Create folder with name :
+
+- Name
+ |
+ - name.jpg
+ - desc.md
+    |
+    -
+ - name-1.jpg
+ - name-2.jpg

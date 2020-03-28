@@ -37,7 +37,7 @@ export default class Dramatic extends Component {
         };
         const rotate = {
             left: Animated.template`${this.state.animate.interpolate({
-                inputRange: [0, 1],
+                inputRange: [0, 1], 
                 outputRange: ['-210px', '10px']
             })
                 }`,
@@ -74,7 +74,6 @@ export default class Dramatic extends Component {
                 <p>
                     Disponible online !
 
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rY4Mu7uL9EI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </p>
 
 

@@ -3,6 +3,22 @@ import React from 'react';
 const nows = [
     {
         "active" : 1,
+        "date": "27/03/2020",
+        "book": "Le Cygne Noir - Nassim Nicholas Taleb",
+        "techno": "CSS grid",
+        "color" : "#5fc77a",
+        "music" :"Yakul - Gogo Pengouin",
+    },
+    {
+        "active" : 0,
+        "date": "20/01/2019",
+        "book": "La convivialité - Ivan Illich",
+        "techno": "Design stuff",
+        "color" : "#4242c7",
+        "music" :"Tom Misch",
+    },
+    {
+        "active" : 0,
         "date": "03/05/2018",
         "book": "Design & Humanités numériques - Anthony Masure",
         "techno": "Css Var",

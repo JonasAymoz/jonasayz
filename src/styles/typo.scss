@@ -8,6 +8,10 @@ html, body {
   font-size: 10px;
 }
 
+:root{
+  --h2-size : 4.8828125em;
+}
+
 h1 {
   margin-bottom: 3rem;
   font-family: Poppins;
@@ -19,13 +23,17 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 3rem;
+  margin-bottom: 0rem;
   font-family: Poppins;
-  font-size: 4.8828125em;
-  line-height: 6rem;
+  font-size: var(--h2-size);
+  line-height: normal;
   font-weight: 800;
   font-style: normal;
   letter-spacing: 0em;
+}
+
+h2 + p {
+  margin: 0;
 }
 
 h3 {
@@ -111,6 +119,30 @@ p.smaller {
 }
 
 
+blockquote {
+    font-size: 20px;
+
+    font-weight: 100;
+    font-style: italic;
+  p {
+    line-height: 37px !important;
+
+    span {
+      &::before {
+        content: "\201C ";
+      }
+
+      &::after {
+        content: " \201D";
+      }
+    }
+  }
+
+
+}
+
+
+
 
 @media screen and (max-width: 1000px) {
   h1 {
@@ -137,7 +169,7 @@ p.smaller {
 }
 
 
-@media screen and (max-width: $smallBreakpoint) {
+@media screen and (max-width: $breakpoint-s) {
   h1 {
     margin-bottom: 3rem;
     font-family: Poppins;
