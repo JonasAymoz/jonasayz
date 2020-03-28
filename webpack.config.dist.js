@@ -82,7 +82,10 @@ module.exports = {
 					}
 				]
 			},
-            { test: /\.md$/, loader: "html!markdown" }
+            {
+                test: /\.md/i,
+                use: 'raw-loader',
+            },
 		]
 	},
 
