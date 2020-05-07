@@ -60,4 +60,7 @@ typings/
 # dist
 dist
 
+# update
+.sh
+
 .DS_Store
